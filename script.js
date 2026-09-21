@@ -4,25 +4,68 @@
 
 let patients = JSON.parse(localStorage.getItem("lifeosPatients")) || [];
 
-// Nếu chưa có dữ liệu thì tạo bệnh nhân mặc định
+const defaultPatients = [
+    {
+        code: "BN001",
+        name: "Nguyễn Văn An",
+        age: 45,
+        phone: "0901234567",
+        visitDate: "05/09/2026",
+        followDate: "19/09/2026",
+        bloodPressure: "140/90",
+        heartRate: 88,
+        temperature: 36.8,
+        note: "Tái khám định kỳ sau điều trị"
+    },
+
+    {
+        code: "BN002",
+        name: "Trần Thị Lan",
+        age: 32,
+        phone: "0987654321",
+        visitDate: "22/09/2026",
+        followDate: "15/10/2026",
+        bloodPressure: "120/80",
+        heartRate: 75,
+        temperature: 36.7,
+        note: "Tái khám định kỳ"
+    },
+
+    {
+        code: "BN003",
+        name: "Lê Văn Minh",
+        age: 50,
+        phone: "0912345678",
+        visitDate: "23/09/2026",
+        followDate: "20/10/2026",
+        bloodPressure: "120/80",
+        heartRate: 80,
+        temperature: 37.1,
+        note: "Theo dõi sức khỏe định kỳ"
+    }
+];
+
+// Nếu chưa có dữ liệu thì dùng 3 bệnh nhân mẫu
 if (!Array.isArray(patients) || patients.length === 0) {
-    patients = [
-        {
-            code: "BN001",
-            name: "Nguyễn Văn An",
-            age: 45,
-            phone: "0901234567",
+    patients = defaultPatients;
+}
 
-            visitDate: "05/09/2026",
-            followDate: "19/09/2026",
+// Bổ sung BN001, BN002, BN003 nếu chưa có
+defaultPatients.forEach(defaultPatient => {
+    const exists = patients.some(
+        patient => patient.code === defaultPatient.code
+    );
 
-            bloodPressure: "140/90",
-            heartRate: 88,
-            temperature: 36.8,
+    if (!exists) {
+        patients.push(defaultPatient);
+    }
+});
 
-            note: "Tái khám định kỳ sau điều trị"
-        }
-    ];
+// Lưu dữ liệu
+localStorage.setItem(
+    "lifeosPatients",
+    JSON.stringify(patients)
+);
 
     localStorage.setItem("lifeosPatients", JSON.stringify(patients));
 }
