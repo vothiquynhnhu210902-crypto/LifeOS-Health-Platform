@@ -66,9 +66,6 @@ localStorage.setItem(
     "lifeosPatients",
     JSON.stringify(patients)
 
-    localStorage.setItem("lifeosPatients", JSON.stringify(patients));
-}
-
 
 // ========================================
 // TRA CỨU BỆNH NHÂN
