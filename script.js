@@ -65,7 +65,7 @@ defaultPatients.forEach(defaultPatient => {
 localStorage.setItem(
     "lifeosPatients",
     JSON.stringify(patients)
-);
+
 
     localStorage.setItem("lifeosPatients", JSON.stringify(patients));
 }
