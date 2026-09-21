@@ -1,26 +1,31 @@
-// ========================================
+
 // DỮ LIỆU BỆNH NHÂN
 // ========================================
 
-const patients = [
+let patients = JSON.parse(localStorage.getItem("lifeosPatients")) || [];
 
-    {
-        code: "BN001",
-        name: "Nguyễn Văn An",
-        age: 45,
-        phone: "0901234567",
+// Nếu chưa có dữ liệu thì tạo bệnh nhân mặc định
+if (!Array.isArray(patients) || patients.length === 0) {
+    patients = [
+        {
+            code: "BN001",
+            name: "Nguyễn Văn An",
+            age: 45,
+            phone: "0901234567",
 
-        visitDate: "05/09/2026",
-        followDate: "19/09/2026",
+            visitDate: "05/09/2026",
+            followDate: "19/09/2026",
 
-        bloodPressure: "140/90",
-        heartRate: 88,
-        temperature: 36.8,
+            bloodPressure: "140/90",
+            heartRate: 88,
+            temperature: 36.8,
 
-        note: "Tái khám định kỳ sau điều trị"
-    }
+            note: "Tái khám định kỳ sau điều trị"
+        }
+    ];
 
-];
+    localStorage.setItem("lifeosPatients", JSON.stringify(patients));
+}
 
 
 // ========================================
@@ -54,6 +59,9 @@ function searchPatient() {
 
 
     showPatient(patient);
+  document.getElementById("dashboardBloodPressure").textContent = patient.bloodPressure || "--";
+document.getElementById("dashboardHeartRate").textContent = patient.heartRate || "--";
+document.getElementById("dashboardTemperature").textContent = patient.temperature || "--";  
 }
 
 
@@ -527,7 +535,7 @@ function addPatient() {
 
 
     // Thêm bệnh nhân vào danh sách
-    patients.push(newPatient);
+    patients.push(newPatient);localStorage.setItem("lifeosPatients", JSON.stringify(patients));
 
 
     // Thông báo
@@ -548,3 +556,38 @@ function addPatient() {
     document.getElementById("newTemperature").value = "";
     document.getElementById("newNote").value = "";
 }
+// =========================
+// CẬP NHẬT DASHBOARD
+// =========================
+
+function updateDashboard() {
+
+    // Tổng số bệnh nhân
+    const totalPatients = patients.length;
+
+    document.getElementById("totalPatients").textContent = totalPatients;
+
+
+    // Đếm số bệnh nhân có ngày tái khám
+    const upcomingVisits = patients.filter(patient => {
+        return patient.followDate && patient.followDate.trim() !== "";
+    }).length;
+
+    document.getElementById("upcomingVisits").textContent = upcomingVisits;
+
+
+    // Số hồ sơ có dữ liệu sức khỏe
+    const healthRecords = patients.filter(patient => {
+        return patient.bloodPressure ||
+               patient.heartRate ||
+               patient.temperature;
+    }).length;
+
+    document.getElementById("healthRecords").textContent = healthRecords;
+}
+
+
+// Cập nhật Dashboard khi mở website
+document.addEventListener("DOMContentLoaded", function () {
+    updateDashboard();
+});

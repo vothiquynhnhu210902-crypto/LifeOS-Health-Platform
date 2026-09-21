@@ -253,3 +253,58 @@ button:hover {
     }
 
 }
+/* =========================
+   DASHBOARD LIFEOS
+   ========================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.dashboard-item {
+    background: #f8fbff;
+    border: 1px solid #dbe8f5;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.dashboard-item h3 {
+    margin: 8px 0;
+    font-size: 17px;
+    color: #123b5d;
+}
+
+.dashboard-item p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #1769aa;
+}
+
+/* Hiển thị đẹp trên điện thoại */
+@media (max-width: 800px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}

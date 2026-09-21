@@ -29,7 +29,51 @@
 
 
     <main>
+<!-- ========================= -->
+<!-- DASHBOARD TỔNG QUAN -->
+<!-- ========================= -->
 
+<section class="card dashboard-section">
+
+    <h2>📊 Tổng quan LifeOS</h2>
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-item">
+            <div class="dashboard-icon">👥</div>
+            <div>
+                <h3>Tổng bệnh nhân</h3>
+                <p id="totalPatients">0</p>
+            </div>
+        </div>
+
+        <div class="dashboard-item">
+            <div class="dashboard-icon">📅</div>
+            <div>
+                <h3>Tái khám sắp tới</h3>
+                <p id="upcomingVisits">0</p>
+            </div>
+        </div>
+
+        <div class="dashboard-item">
+            <div class="dashboard-icon">❤️</div>
+            <div>
+                <h3>Theo dõi sức khỏe</h3>
+                <p id="healthRecords">0</p>
+            </div>
+        </div>
+
+        <div class="dashboard-item">
+            <div class="dashboard-icon">🤖</div>
+            <div>
+                <h3>AI Health Assistant</h3>
+                <p>Đang hoạt động</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
         <!-- ========================= -->
         <!-- TRA CỨU BỆNH NHÂN -->
         <!-- ========================= -->
@@ -157,7 +201,46 @@
         </section>
 
 
-        <!-- ========================= -->
+        
+       <!-- ========================= -->
+<!-- THEO DÕI SỨC KHỎE -->
+<!-- ========================= -->
+
+<section class="card health-section">
+
+    <h2>📈 Theo dõi chỉ số sức khỏe</h2>
+
+    <div class="health-grid">
+
+        <div class="health-item">
+            <div class="health-icon">❤️</div>
+            <h3>Huyết áp</h3>
+            <p id="dashboardBloodPressure">--</p>
+        </div>
+
+        <div class="health-item">
+            <div class="health-icon">💓</div>
+            <h3>Nhịp tim</h3>
+            <p id="dashboardHeartRate">--</p>
+            <span>bpm</span>
+        </div>
+
+        <div class="health-item">
+            <div class="health-icon">🌡️</div>
+            <h3>Nhiệt độ</h3>
+            <p id="dashboardTemperature">--</p>
+            <span>°C</span>
+        </div>
+
+    </div>
+
+    <div class="health-chart">
+        <h3>📊 Biểu đồ theo dõi</h3>
+        <canvas id="healthChart"></canvas>
+    </div>
+
+</section>
+<!-- ========================= -->
         <!-- AI -->
         <!-- ========================= -->
 
