@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #183044;
+}
+
+/* ===== HEADER ===== */
+
+header {
+    background: linear-gradient(
+        135deg,
+        #0b4f82,
+        #1769aa
+    );
+
+    color: white;
+    padding: 25px 8%;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin: 8px 0 0;
+    font-size: 16px;
+}
+
+/* ===== MAIN ===== */
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ===== CARD ===== */
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #0b4f82;
+}
+
+/* ===== SEARCH ===== */
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+
+    padding: 14px;
+
+    border: 1px solid #dce5ee;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #1769aa;
+}
+
+/* ===== BUTTON ===== */
+
+button {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    background: #1769aa;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0b4f82;
+}
+
+/* ===== PATIENT INFORMATION ===== */
+
+.patient-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.info-item {
+    background: #f7fafc;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e3ebf2;
+}
+
+.info-item span {
+    display: block;
+
+    color: #6c7a89;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+.info-item strong {
+    font-size: 16px;
+}
+
+/* ===== AI BUTTON ===== */
+
+.ai-button {
+    margin-top: 20px;
+
+    background: #6c3fc7;
+}
+
+.ai-button:hover {
+    background: #512c9b;
+}
+
+/* ===== AI RESULT ===== */
+
+.ai-box {
+    padding: 20px;
+
+    background: #f4efff;
+
+    border-left:
+        5px solid #6c3fc7;
+
+    border-radius: 10px;
+
+    line-height: 1.6;
+}
+
+.warning {
+    background: #fff3cd;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-top: 10px;
+}
+
+.success {
+    background: #e8f7ee;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-top: 10px;
+}
+
+/* ===== ẨN ===== */
+
+.hidden {
+    display: none;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .patient-info {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   FORM THÊM BỆNH NHÂN
+========================= */
+
+.patient-form {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+.patient-form input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #dce5ee;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.patient-form input:focus {
+
+    border-color: #1769aa;
+}
+
+
+@media (max-width: 600px) {
+
+    .patient-form {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
